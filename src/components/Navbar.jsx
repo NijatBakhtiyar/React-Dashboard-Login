@@ -15,16 +15,17 @@ import { getUsers } from "../redux/users";
 
 function Navbar({ show, showBar }) {
   const { page } = useParams();
-  const { username } = useSelector((state) => state.validate);
+  const reduxLogin = useSelector((state) => state.validate);
+  const storageLogin = JSON.parse(localStorage.getItem("login"));
   const dispatch = useDispatch();
-  const usersData = useSelector((state) => state.users?.data);
-  const usersDataStatus = useSelector((state) => state.users?.status);
+  // const usersData = useSelector((state) => state.users?.data);
+  // const usersDataStatus = useSelector((state) => state.users?.status);
 
   useEffect(() => {
     dispatch(getUsers());
   }, []);
 
-  console.log("usersData", usersData, usersDataStatus);
+  // console.log("usersData", usersData, usersDataStatus);
 
   return (
     <nav className={show ? styles.show : ""}>
@@ -41,7 +42,11 @@ function Navbar({ show, showBar }) {
           />
         </div>
         <div className={styles.info}>
-          <h2>{username}</h2>
+          <h2>
+            {reduxLogin?.username
+              ? reduxLogin?.username
+              : storageLogin?.username}
+          </h2>
           <p>Sr. Visual Designer</p>
         </div>
       </div>

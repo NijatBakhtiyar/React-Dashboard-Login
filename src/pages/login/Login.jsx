@@ -100,7 +100,11 @@ function Login() {
                   <button>
                     {loading ? (
                       <LoadingIcon
-                        params={{ color: "red", width: 46, height: 46 }}
+                        params={{
+                          color: "hsl(238deg 100% 73%)",
+                          width: 46,
+                          height: 46,
+                        }}
                       />
                     ) : (
                       "Login"

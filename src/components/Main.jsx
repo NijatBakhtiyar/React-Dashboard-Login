@@ -10,7 +10,8 @@ import Activities from "./Activities";
 import CardGroups from "./CardGroups";
 
 function Main({ showBar }) {
-  const { username } = useSelector((state) => state.validate);
+  const reduxLogin = useSelector((state) => state.validate);
+  const storageLogin = JSON.parse(localStorage.getItem("login"));
 
   const navigate = useNavigate();
   function logout() {
@@ -27,13 +28,19 @@ function Main({ showBar }) {
       </div>
       <div className={styles.user}>
         <div className={styles.task}>
-          <h2>Hi {username}!</h2>
+          <h2>
+            Hi{" "}
+            {reduxLogin?.username
+              ? reduxLogin?.username
+              : storageLogin?.username}
+            !
+          </h2>
           <div className={styles.complete}>
             15% <span className={styles.text}>task completed</span>
             <div>
               <span
                 className={styles.percent}
-                style={{ width: `${40}%` }}
+                style={{ width: `${15}%` }}
               ></span>
             </div>
           </div>
