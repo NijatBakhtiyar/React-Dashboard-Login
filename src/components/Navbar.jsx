@@ -1,31 +1,21 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React, { useEffect } from "react";
+import React from "react";
 import { BiMessageRoundedDetail } from "react-icons/bi";
 import { BsCalendar2, BsClock, BsListTask } from "react-icons/bs";
 import { GoSettings } from "react-icons/go";
 import { GrClose } from "react-icons/gr";
 import { HiOutlineInbox } from "react-icons/hi";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 
 import Profile from "../images/profile.jpg";
 import styles from "../pages/dashboard/Dashboard.module.scss";
-import { getUsers } from "../redux/users";
 
 function Navbar({ show, showBar }) {
   const { page } = useParams();
   const reduxLogin = useSelector((state) => state.validate);
   const storageLogin = JSON.parse(localStorage.getItem("login"));
-  const dispatch = useDispatch();
-  // const usersData = useSelector((state) => state.users?.data);
-  // const usersDataStatus = useSelector((state) => state.users?.status);
-
-  useEffect(() => {
-    dispatch(getUsers());
-  }, []);
-
-  // console.log("usersData", usersData, usersDataStatus);
 
   return (
     <nav className={show ? styles.show : ""}>

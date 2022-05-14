@@ -12,7 +12,7 @@ npm start
 
 ## Used technologies:
 
-**UI:** [**React Toastify**](https://www.npmjs.com/package/react-toastify),[**React Icons**](https://react-icons.github.io/react-icons/), [**React Loading Skeleton**](https://www.npmjs.com/package/react-loading-skeleton), [**Sass**](https://www.npmjs.com/package/sass)
+**UI:** [**React Toastify**](https://www.npmjs.com/package/react-toastify), [**React Icons**](https://react-icons.github.io/react-icons/), [**React Loading Skeleton**](https://www.npmjs.com/package/react-loading-skeleton), [**Sass**](https://www.npmjs.com/package/sass)
 
 **Data Fetching:** [**Axios**](https://www.npmjs.com/package/axios)
 
