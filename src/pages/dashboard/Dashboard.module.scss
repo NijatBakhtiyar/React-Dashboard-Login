@@ -1,6 +1,10 @@
 .dashboardPage {
   display: flex;
 
+  h2 {
+    text-transform: capitalize;
+  }
+
   nav {
     min-width: max-content;
     height: 100vh;
@@ -46,21 +50,20 @@
         text-decoration: none;
         color: #a6a8b5;
         padding: 10px 20px;
-        font-size: 20px;
+        font-size: 16px;
         position: relative;
         display: flex;
         justify-content: space-between;
 
-        p{
-            display: flex;
-            gap: 20px;
-            align-items: center;
+        p {
+          display: flex;
+          gap: 20px;
+          align-items: center;
 
-            svg{
-                width: 25px;
-                height: 25px;
-            }
-
+          svg {
+            width: 20px;
+            height: 20px;
+          }
         }
 
         &.active {
@@ -84,5 +87,86 @@
 
   main {
     flex: 3;
+
+    .menuBar {
+      display: flex;
+      justify-content: end;
+      padding: 0 30px;
+      margin-top: 40px;
+      cursor: pointer;
+      color: #d68;
+      font-size: 30px;
+    }
+
+    .user {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      // margin: 40px 0;
+      margin-bottom: 40px;
+      padding: 0 20px;
+
+      .task {
+        display: flex;
+        justify-content: space-between;
+        flex: 1.5;
+      }
+
+      .logoutBtn {
+        flex: 1;
+        display: flex;
+        justify-content: end;
+      }
+
+      .complete {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        color: #a6a8b5;
+
+        div {
+          display: block;
+          border-radius: 4px;
+          height: 8px;
+          width: 100px;
+          background: #ccc;
+          position: relative;
+
+          .percent {
+            position: absolute;
+            height: 8px;
+            background: #d68;
+            width: 20%;
+            border-radius: 4px;
+          }
+        }
+      }
+
+      button {
+        background: #d68;
+        border-radius: 8px;
+        border: none;
+        color: #fff;
+        padding: 10px 12px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  main {
+    .user .task {
+      flex: 2 !important;
+      flex-direction: column;
+    }
+  }
+
+  nav {
+    position: absolute;
+    left: 0;
+    background: #fff;
+    z-index: 1;
   }
 }

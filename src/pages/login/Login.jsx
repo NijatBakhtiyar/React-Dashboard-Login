@@ -27,7 +27,6 @@ function Login() {
             onSubmit={(values, { resetForm }) => {
               setLoading(true);
               dispatch(validate({ values }));
-              console.log(values);
 
               if (values.checkbox) {
                 localStorage.setItem("login", JSON.stringify(values));
@@ -54,6 +53,7 @@ function Login() {
                     name="username"
                     value={values.username}
                     onChange={handleChange}
+                    autoComplete="off"
                   />
                 </div>
                 <span className={styles.error}>
@@ -70,6 +70,7 @@ function Login() {
                       name="password"
                       value={values.password}
                       onChange={handleChange}
+                      autoComplete="off"
                     />
                   </div>
                   <span className={styles.icon} onClick={() => setShow(!show)}>

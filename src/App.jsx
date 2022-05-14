@@ -7,7 +7,7 @@ import Routers from "./routes/Routers";
 
 function App() {
   const { count } = useSelector((state) => state.counter);
-  useSelector((state) => console.log(state.validate));
+  // useSelector((state) => console.log(state.validate));
   const dispatch = useDispatch();
   // console.log(username, );
 

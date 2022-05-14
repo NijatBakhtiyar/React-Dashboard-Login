@@ -8,8 +8,8 @@ export const validationSlice = createSlice({
   },
   reducers: {
     validate: (state, action) => {
-      state.username = action.payload.username;
-      state.password = action.payload.password;
+      state.username = action.payload.values.username;
+      state.password = action.payload.values.password;
     },
   },
 });
