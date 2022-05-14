@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from "react";
-import styles from "./Activities.module.scss";
-import { HiPlusSm } from "react-icons/hi";
+import React, { useState } from "react";
 import { FiSearch } from "react-icons/fi";
+import { HiPlusSm } from "react-icons/hi";
+
 import ActiveTasks from "./ActiveTasks";
+import styles from "./Activities.module.scss";
 import CompletedTasks from "./CompletedTasks";
-import { useDispatch } from "react-redux";
-// import { users } from "../redux/users";
 
 function Activities() {
   const [active, setActive] = useState("activeTask");
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(users());
-  // }, []);
 
   return (
     <div className={styles.allActivities}>
@@ -44,7 +38,10 @@ function Activities() {
         </div>
         <div className={styles.search}>
           <FiSearch />
-          <input type="text" placeholder="Search" />
+          <input
+            type="text"
+            placeholder="Search"
+          />
         </div>
       </div>
       <div className={styles.tasks}>

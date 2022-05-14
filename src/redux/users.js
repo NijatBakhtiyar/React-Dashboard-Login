@@ -31,35 +31,3 @@ const usersSlice = createSlice({
 });
 
 export default usersSlice.reducer;
-
-// import { createSlice } from "@reduxjs/toolkit";
-// import axios from "axios";
-
-// export const usersSlice = createSlice({
-//   name: "users",
-//   initialState: {
-//     users: [],
-//   },
-
-//   reducers: {
-//     users: async (state, action) => {
-//       state.users = await addTodoAsync();
-//     },
-//   },
-// });
-
-// const addTodoAsync = async () => {
-//   try {
-//     // console.log(data);
-//     const { data } = await axios("https://jsonplaceholder.typicode.com/users");
-//     // console.log(response);
-//     return data;
-//     // dispatch(users(response.data));
-//   } catch (err) {
-//     throw new Error(err);
-//   }
-// };
-
-// export const { users } = usersSlice.actions;
-
-// export default usersSlice.reducer;

@@ -95,3 +95,14 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  main {
+    .monthly {
+      align-items: flex-start !important;
+      flex-direction: column !important;
+      margin: 20px 0 !important;
+      gap: 20px;
+    }
+  }
+}

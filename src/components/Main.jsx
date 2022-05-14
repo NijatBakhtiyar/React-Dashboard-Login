@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React from "react";
+import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import { useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import styles from "../pages/dashboard/Dashboard.module.scss";
 import Activities from "./Activities";
-import { HiOutlineMenuAlt1 } from "react-icons/hi";
 import CardGroups from "./CardGroups";
 
-function Main() {
+function Main({ showBar }) {
   const { username } = useSelector((state) => state.validate);
-  const [show, setShow] = useState(false);
 
   const navigate = useNavigate();
   function logout() {
@@ -18,16 +20,16 @@ function Main() {
 
   return (
     <main>
-      <div className={styles.menuBar}>
-        <span onClick={() => setShow(!show)}>
+      <div className={styles.showBar}>
+        <span onClick={() => showBar("show")}>
           <HiOutlineMenuAlt1 />
         </span>
       </div>
-      <div className={show ? `${styles.user} ${styles.show}` : styles.user}>
+      <div className={styles.user}>
         <div className={styles.task}>
           <h2>Hi {username}!</h2>
           <div className={styles.complete}>
-            15% task completed
+            15% <span className={styles.text}>task completed</span>
             <div>
               <span
                 className={styles.percent}
@@ -40,7 +42,7 @@ function Main() {
           <button onClick={logout}>Logout</button>
         </div>
       </div>
-      {/* <CardGroups /> */}
+      <CardGroups />
       <Activities />
     </main>
   );

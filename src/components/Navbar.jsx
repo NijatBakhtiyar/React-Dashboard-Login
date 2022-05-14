@@ -1,8 +1,10 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import React, { useEffect } from "react";
 import { BiMessageRoundedDetail } from "react-icons/bi";
 import { BsCalendar2, BsClock, BsListTask } from "react-icons/bs";
 import { GoSettings } from "react-icons/go";
+import { GrClose } from "react-icons/gr";
 import { HiOutlineInbox } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -11,28 +13,9 @@ import Profile from "../images/profile.jpg";
 import styles from "../pages/dashboard/Dashboard.module.scss";
 import { getUsers } from "../redux/users";
 
-function Navbar() {
+function Navbar({ show, showBar }) {
   const { page } = useParams();
   const { username } = useSelector((state) => state.validate);
-  // console.log(result);
-  // useSelector((state) => console.log(state.users));
-  // result?.then((res) => console.log(res));
-
-  // console.log(result);
-  // const addTodoAsync = async () => {
-  //   try {
-  //     // console.log(data);
-  //     const { data } = await axios(
-  //       "https://jsonplaceholder.typicode.com/users"
-  //     );
-  //     // console.log(response);
-  //     return data;
-  //     // dispatch(users(response.data));
-  //   } catch (err) {
-  //     throw new Error(err);
-  //   }
-  // };
-  // console.log(addTodoAsync().then((res) => console.log("test", res)));
   const dispatch = useDispatch();
   const usersData = useSelector((state) => state.users?.data);
   const usersDataStatus = useSelector((state) => state.users?.status);
@@ -42,13 +25,14 @@ function Navbar() {
   }, []);
 
   console.log("usersData", usersData, usersDataStatus);
-  // useEffect(async () => {
-  //   // const { data } = await axios("https://jsonplaceholder.typicode.com/users");
-  //   // console.log(data);
-  // }, []);
 
   return (
-    <nav>
+    <nav className={show ? styles.show : ""}>
+      <div className={styles.closeBar}>
+        <span onClick={() => showBar("close")}>
+          <GrClose />
+        </span>
+      </div>
       <div className={styles.profile}>
         <div className={styles.image}>
           <img

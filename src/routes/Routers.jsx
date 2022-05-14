@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
+
 import Dashboard from "../pages/dashboard/Dashboard";
 import Login from "../pages/login/Login";
 
@@ -15,11 +16,24 @@ function Routers() {
 
   return (
     <Routes>
-      <Route path="/dashboard" element={<Dashboard />}>
-        <Route index path="/dashboard/:page" element={<Dashboard />} />
+      <Route
+        path="/dashboard"
+        element={<Dashboard />}
+      >
+        <Route
+          index
+          path="/dashboard/:page"
+          element={<Dashboard />}
+        />
       </Route>
-      <Route path="/login" element={<Login />} />
-      <Route path="*" element={<Navigate to="dashboard" />} />
+      <Route
+        path="/login"
+        element={<Login />}
+      />
+      <Route
+        path="*"
+        element={<Navigate to="dashboard" />}
+      />
     </Routes>
   );
 }

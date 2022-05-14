@@ -1,15 +1,18 @@
-import React, { useState } from "react";
-import styles from "./Login.module.scss";
-import { FaUser } from "react-icons/fa";
-import { BiShow } from "react-icons/bi";
-import { RiLockPasswordFill } from "react-icons/ri";
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import { Formik } from "formik";
-import { LoginSchema } from "./LoginSchema";
+import React, { useState } from "react";
+import { BiShow } from "react-icons/bi";
+import { FaUser } from "react-icons/fa";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
 import LoadingIcon from "../../images/loadingIcon";
 import { validate } from "../../redux/auth";
-import { useDispatch } from "react-redux";
 import AdminLayouts from "../../routes/AdminLayouts";
-import { useNavigate } from "react-router-dom";
+import styles from "./Login.module.scss";
+import { LoginSchema } from "./LoginSchema";
 
 function Login() {
   const [show, setShow] = useState(false);
@@ -73,7 +76,10 @@ function Login() {
                       autoComplete="off"
                     />
                   </div>
-                  <span className={styles.icon} onClick={() => setShow(!show)}>
+                  <span
+                    className={styles.icon}
+                    onClick={() => setShow(!show)}
+                  >
                     <BiShow />
                   </span>
                 </div>
