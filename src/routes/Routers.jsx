@@ -15,19 +15,11 @@ function Routers() {
 
   return (
     <Routes>
-      <Route
-        path="/dashboard"
-        element={<Dashboard />}
-        index
-      />
-      <Route
-        path="/login"
-        element={<Login />}
-      />
-      <Route
-        path="*"
-        element={<Navigate to="dashboard" />}
-      />
+      <Route path="/dashboard" element={<Dashboard />}>
+        <Route index path="/dashboard/:page" element={<Dashboard />} />
+      </Route>
+      <Route path="/login" element={<Login />} />
+      <Route path="*" element={<Navigate to="dashboard" />} />
     </Routes>
   );
 }

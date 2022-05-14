@@ -36,7 +36,7 @@ function Login() {
               setTimeout(() => {
                 setLoading(false);
                 resetForm();
-                // navigate("/dashboard");
+                navigate("/dashboard");
               }, 2000);
             }}
             validationSchema={LoginSchema}
