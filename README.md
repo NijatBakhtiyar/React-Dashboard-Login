@@ -8,7 +8,7 @@ npm install
 npm start
 ```
 
-## 🔗 [**Live Demo**](https://protein-react-bootcamp-finish.netlify.app/)
+## 🔗 [**Live Demo**](https://react-dashboard-login.netlify.app)
 
 ## Used technologies:
 
