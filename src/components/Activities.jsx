@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import { HiPlusSm } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
+import SkeletonLoader from "../constants/SkeletonLoader";
 import { getUsers } from "../redux/users";
 import ActiveTasks from "./ActiveTasks";
 import styles from "./Activities.module.scss";
@@ -10,7 +12,6 @@ import CompletedTasks from "./CompletedTasks";
 
 function Activities() {
   const dispatch = useDispatch();
-  const usersData = useSelector((state) => state.users?.data);
   const usersDataStatus = useSelector((state) => state.users?.status);
   const [active, setActive] = useState("activeTask");
   const [newData, setNewData] = useState([]);
@@ -38,7 +39,6 @@ function Activities() {
       })
     );
   }
-
 
   return (
     <div className={styles.allActivities}>
@@ -76,21 +76,33 @@ function Activities() {
         </div>
       </div>
       <div className={styles.tasks}>
-        {active === "activeTask"
-          ? activeTasks.map((task) => (
+        {active === "activeTask" ? (
+          usersDataStatus === "Loading" ? (
+            <SkeletonLoader />
+          ) : (
+            activeTasks.map((task) => (
               <ActiveTasks
                 task={task}
                 key={task.id}
                 completedTask={completeTask}
               />
             ))
-          : completedTasks.map((task) => (
-              <CompletedTasks
-                task={task}
-                key={task.id}
-              />
-            ))}
+          )
+        ) : (
+          completedTasks.map((task) => (
+            <CompletedTasks
+              task={task}
+              key={task.id}
+            />
+          ))
+        )}
       </div>
+      <ToastContainer
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        autoClose={1000}
+      />
     </div>
   );
 }

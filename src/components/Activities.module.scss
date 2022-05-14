@@ -87,11 +87,54 @@
     }
   }
 
-  .activeTasks {
+  .activeTasks,
+  .completedTasks {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin: 20px 0;
+    cursor: pointer;
+
     h2 {
-      color: hsl(232deg 9% 68%);
+      color: #000;
       font-size: 18px;
+      font-weight: 600;
+    }
+
+    h6 {
+      color: hsl(232deg 9% 68%);
       font-weight: 400;
+      font-size: 14px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+
+      img {
+        object-fit: cover;
+        max-width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+    }
+
+    .userImages {
+      display: flex;
+      flex: 1;
+      justify-content: flex-end;
+
+      img {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+
+        &:nth-child(2),
+        &:nth-child(3) {
+          margin-left: -10px;
+        }
+      }
     }
   }
 }
@@ -104,5 +147,9 @@
       margin: 20px 0 !important;
       gap: 20px;
     }
+  }
+
+  .search {
+    display: none;
   }
 }

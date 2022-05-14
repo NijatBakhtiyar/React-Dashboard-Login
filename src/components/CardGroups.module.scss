@@ -66,6 +66,7 @@
     &:nth-child(1) {
       flex: 1;
       background: linear-gradient(rgb(241, 54, 104), rgba(226, 54, 100, 0.863));
+      box-shadow: 2px 7px 20px 18px rgb(255 221 238 / 70%);
     }
     &:nth-child(2) {
       flex: 1.4;
